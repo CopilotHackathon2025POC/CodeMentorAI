@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: AI Code Reviewer
-        uses: CopilotHackathon2025POC/ai-code-reviewer@master # Update this to the correct branch, tag, or commit SHA
+        uses: nagaraj-chockan/ai-code-reviewer@master # Update this to the correct branch, tag, or commit SHA
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
