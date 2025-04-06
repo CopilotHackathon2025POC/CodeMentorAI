@@ -14,6 +14,11 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0.x' # Update to the required version that supports .NET 8.0
 
       - name: AI Code Reviewer
         uses: CopilotHackathon2025POC/CodeMentorAI@master
