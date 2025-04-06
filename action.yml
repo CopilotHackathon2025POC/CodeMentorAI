@@ -1,29 +1,32 @@
-name: AI Code Reviewer
-
-on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-permissions:
-  contents: write
-  pull-requests: write
-jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '8.0.x' # Use the version that supports .NET 8.0
-
-      - name: AI Code Reviewer
-        uses: CopilotHackathon2025POC/CodeMentorAI@master
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_API_MODEL: "gpt-4"
-          exclude: "**/*.json, **/*.md"
+name: "AI Code Reviewer"
+description: "A GitHub Action to review code using OpenAI's GPT-4 API"
+inputs:
+  GITHUB_TOKEN:
+    description: "GitHub token"
+    required: true
+  OPENAI_API_KEY:
+    description: "OpenAI API key"
+    required: true
+  OPENAI_API_MODEL:
+    description: "OpenAI API model"
+    required: false
+    default: "gpt-4"
+  exclude:
+    description: "Exclude patterns"
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.0.x'
+    - name: Restore dependencies
+      run: dotnet restore
+      shell: bash
+    - name: Build
+      run: dotnet build --configuration Release
+      shell: bash
+    - name: Run AI Code Reviewer
+      run: dotnet run --project path/to/your/project.csproj
+      shell: bash
