@@ -23,7 +23,10 @@ runs:
         dotnet-version: '6.0.x'
     - name: Restore dependencies
       run: dotnet restore
+      shell: bash
     - name: Build
       run: dotnet build --configuration Release
+      shell: bash
     - name: Run AI Code Reviewer
       run: dotnet run --project path/to/your/project.csproj
+      shell: bash
