@@ -15,5 +15,15 @@ inputs:
     description: "Exclude patterns"
     required: false
 runs:
-  using: "node12"
-  main: "index.js"
+  using: "composite"
+  steps:
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.0.x'
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Run AI Code Reviewer
+      run: dotnet run --project path/to/your/project.csproj
