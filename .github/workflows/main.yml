@@ -20,6 +20,9 @@ jobs:
         with:
           dotnet-version: '8.0.x' # Update to the required version that supports .NET 8.0
 
+      - name: Verify .NET SDK Version
+        run: dotnet --version
+
       - name: AI Code Reviewer
         uses: CopilotHackathon2025POC/CodeMentorAI@master
         with:
