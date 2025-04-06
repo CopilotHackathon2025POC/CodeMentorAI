@@ -35,6 +35,17 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal
         
+         - name: Log OpenAI Response
+        run: |
+          RESPONSE=$(curl -s -X POST "https://api.openai.com/v1/engines/${{ secrets.OPENAI_API_MODEL }}/completions" \
+          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "prompt": "Your prompt here",
+            "max_tokens": 100
+          }')
+          echo "OpenAI Response: $RESPONSE"
+        
       - name: AI Code Reviewer
         uses: CopilotHackathon2025POC/CodeMentorAI@master
         with:
@@ -42,3 +53,6 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_API_MODEL: "gpt-4"
           exclude: "**/*.json, **/*.md"
+          
+    
+
