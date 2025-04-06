@@ -26,11 +26,34 @@ namespace CodeMentorAI
 
             // Display the reservation details
             Console.WriteLine("\nReservation Details:");
-            Console.WriteLine($"Name: {name}");
-            Console.WriteLine($"Event: {eventName}");
-            Console.WriteLine($"Number of Tickets: {numberOfTickets}");
+            Console.WriteLine("Name: " + name); // Non-standard: Use string interpolation.
+            Console.WriteLine("Event: " + eventName); // Non-standard: Use string interpolation
+            Console.WriteLine("Number of Tickets: " + numberOfTickets); // Non-standard: Use string interpolation
 
             Console.WriteLine("\nThank you for using the Ticket Reservation System!");
+
+            // Non-standard: Unused variable
+            int unusedVariable = 0;
+
+            // Non-standard: Magic number
+            if (numberOfTickets == 5)
+            {
+                Console.WriteLine("You have selected 5 tickets.");
+            }
+
+            // Non-standard: Hardcoded string
+            string hardcodedString = "Hardcoded value";
+            Console.WriteLine(hardcodedString);
+
+            // Non-standard: Long method
+            for (int i = 0; i < 100; i++)
+            {
+                Console.WriteLine("This is a long method.");
+            }
+
+            // Non-standard: Inconsistent naming convention
+            string user_name = name;
+            string event_name = eventName;
         }
     }
 }
