@@ -26,7 +26,7 @@ namespace CodeMentorAI
 
             // Display the reservation details
             Console.WriteLine("\nReservation Details:");
-            Console.WriteLine("Name: " + name); // Non-standard: Use string interpolation
+            Console.WriteLine("Name: " + name); // Non-standard: Use string interpolation.
             Console.WriteLine("Event: " + eventName); // Non-standard: Use string interpolation
             Console.WriteLine("Number of Tickets: " + numberOfTickets); // Non-standard: Use string interpolation
 
