@@ -14,28 +14,36 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-        
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '8.0.x' # Ensure this is the required version that supports .NET 8.0
-        
+
       - name: Verify .NET SDK Version
         run: dotnet --version
-        
+
       - name: Clear NuGet Cache
         run: dotnet nuget locals all --clear
-        
+
       - name: Install dependencies
         run: dotnet restore
-        
+
       - name: Build
         run: dotnet build --no-restore
-        
+
       - name: Test
         run: dotnet test --no-build --verbosity normal
-        
-         - name: Log OpenAI Response
+
+      - name: AI Code Reviewer
+        uses: CopilotHackathon2025POC/CodeMentorAI@master
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_MODEL: "gpt-4"
+          exclude: "**/*.json, **/*.md"
+
+      - name: Log OpenAI Response
         run: |
           RESPONSE=$(curl -s -X POST "https://api.openai.com/v1/engines/${{ secrets.OPENAI_API_MODEL }}/completions" \
           -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
@@ -45,14 +53,3 @@ jobs:
             "max_tokens": 100
           }')
           echo "OpenAI Response: $RESPONSE"
-        
-      - name: AI Code Reviewer
-        uses: CopilotHackathon2025POC/CodeMentorAI@master
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_API_MODEL: "gpt-4"
-          exclude: "**/*.json, **/*.md"
-          
-    
-
