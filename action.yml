@@ -1,0 +1,19 @@
+name: "AI Code Reviewer"
+description: "A GitHub Action to review code using OpenAI's GPT-4 API"
+inputs:
+  GITHUB_TOKEN:
+    description: "GitHub token"
+    required: true
+  OPENAI_API_KEY:
+    description: "OpenAI API key"
+    required: true
+  OPENAI_API_MODEL:
+    description: "OpenAI API model"
+    required: false
+    default: "gpt-4"
+  exclude:
+    description: "Exclude patterns"
+    required: false
+runs:
+  using: "node12"
+  main: "index.js"
