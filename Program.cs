@@ -28,7 +28,7 @@ namespace CodeMentorAI
             Console.WriteLine("\nReservation Details:");
             Console.WriteLine("Name: " + name); // Non-standard: Use string interpolation.
             Console.WriteLine("Event: " + eventName); // Non-standard: Use string interpolation
-            Console.WriteLine("Number of Tickets: " + numberOfTickets); // Non-standard: Use string interpolation
+            Console.WriteLine("Number of Tickets: " + numberOfTickets); // Non-standard: Use string interpolation.
 
             Console.WriteLine("\nThank you for using the Ticket Reservation System!");
 
