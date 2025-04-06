@@ -6,7 +6,7 @@ namespace CodeMentorAI
 {
     static void Main()
     {
-        Console.WriteLine("Welcome to the Ticket Reservation System");
+        Console.WriteLine("Welcome to the Ticket Reservation Systems");
 
         Console.Write("Enter your name: ");
         string name = Console.ReadLine();
