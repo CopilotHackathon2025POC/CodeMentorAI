@@ -49,7 +49,7 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
           -H "Content-Type: application/json" \
           -d '{
-            "prompt": "Your prompt here",
+            "prompt": "what is the date today",
             "max_tokens": 100
           }')
           echo "OpenAI Response: $RESPONSE"
