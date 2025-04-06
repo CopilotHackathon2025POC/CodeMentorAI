@@ -26,7 +26,7 @@ namespace CodeMentorAI
             }
             else
             {
-                Console.WriteLine("Please enter a valid number of tickets.");
+                Console.WriteLine("Please enter a valid number of tickets..");
             }
         }
 
