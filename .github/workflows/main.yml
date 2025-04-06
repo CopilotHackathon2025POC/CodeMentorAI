@@ -17,7 +17,7 @@ jobs:
 
       - name: AI Code Reviewer
         uses: CopilotHackathon2025POC/ai-code-reviewer@master
-        with:
+        with:      
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_API_MODEL: "gpt-4"
