@@ -19,22 +19,22 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '8.0.x' # Ensure this is the required version that supports .NET 8.0
-
+        
       - name: Verify .NET SDK Version
         run: dotnet --version
-
+        
       - name: Clear NuGet Cache
         run: dotnet nuget locals all --clear
-
+        
       - name: Install dependencies
         run: dotnet restore
-
+        
       - name: Build
         run: dotnet build --no-restore
-
+        
       - name: Test
         run: dotnet test --no-build --verbosity normal
-
+        
       - name: AI Code Reviewer
         uses: CopilotHackathon2025POC/CodeMentorAI@master
         with:
