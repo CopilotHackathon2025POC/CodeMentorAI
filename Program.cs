@@ -44,6 +44,16 @@ namespace CodeMentorAI
             // Non-standard: Hardcoded string
             string hardcodedString = "Hardcoded value";
             Console.WriteLine(hardcodedString);
+
+            // Non-standard: Long method
+            for (int i = 0; i < 100; i++)
+            {
+                Console.WriteLine("This is a long method.");
+            }
+
+            // Non-standard: Inconsistent naming convention
+            string user_name = name;
+            string event_name = eventName;
         }
     }
 }
