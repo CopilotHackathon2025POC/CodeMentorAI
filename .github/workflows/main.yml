@@ -32,7 +32,7 @@ jobs:
       - name: Build
         run: dotnet build --no-restore
       - name: Run AI Code Reviewer
-        run: dotnet run --project src/project.csproj
+        run: dotnet run --project CodeMentorAI.csproj
 
         
       - name: Test
