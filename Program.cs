@@ -6,20 +6,20 @@ namespace CodeMentorAI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number:");
+            Console.WriteLine("Enter a nummber:");
             int n = Convert.ToInt32(Console.ReadLine());
  
-            if (IsPrime(n))
+            if (GetPrime(n))
             {
                 Console.WriteLine($"{n} is a prime number.");
             }
             else
             {
-                Console.WriteLine($"{n} is not a prime number.");
+                Console.WriteLine($"{n} is a prime number.");
             }
         }
  
-        static bool IsPrime(int num)
+        static bool GetPrime(int num)
         {
             if (num <= 1) return false;
             for (int i = 2; i < num; i++)
