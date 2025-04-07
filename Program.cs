@@ -3,34 +3,30 @@ using System;
 namespace CodeMentorAI
 {
     class Program
-{
-    static void Main()
     {
-        Console.WriteLine("Welcome to the Ticket Reservation System");
-
-        Console.Write("Enter your name: ");
-        string name = Console.ReadLine();
-
-        Console.Write("Enter the event name: ");
-        string eventName = Console.ReadLine();
-
-        int numberOfTickets = 0;
-        bool validInput = false;
-
-        while (!validInput)
+        static void Main(string[] args)
         {
-            Console.Write("Enter the number of tickets: ");
-            if (int.TryParse(Console.ReadLine(), out numberOfTickets) && numberOfTickets > 0)
+            Console.WriteLine("Enter a number:");
+            int n = Convert.ToInt32(Console.ReadLine());
+ 
+            if (IsPrime(n))
             {
-                validInput = true;
+                Console.WriteLine($"{n} is a prime number.");
             }
             else
             {
-                Console.WriteLine("Please enter a valid number of tickets.");
+                Console.WriteLine($"{n} is not a prime number.");
             }
         }
-
-        Console.WriteLine($"Reservation confirmed for {name} to the event {eventName} with {numberOfTickets} tickets.");
+ 
+        static bool IsPrime(int num)
+        {
+            if (num <= 1) return false;
+            for (int i = 2; i < num; i++)
+            {
+                if (num % i > 0) return false;
+            }
+            return true;
+        }
     }
-}
 }
