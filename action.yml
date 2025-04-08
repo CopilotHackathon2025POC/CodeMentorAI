@@ -27,6 +27,4 @@ runs:
     - name: Build
       run: dotnet build --configuration Release
       shell: bash
-    - name: Run AI Code Reviewer
-      run: dotnet run --project CodeMentorAI.csproj
-      shell: bash
+   
